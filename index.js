@@ -71,6 +71,9 @@ class PDSReader {
 	 * @returns {Object} Return parsed JavaScript Object
 	 */
     static parsePDSBuffer(buf) {
+        if(typeof(buf) === 'string') {
+            buf = Buffer.from(buf);
+        }
         const ret = {};
         const currSections = [];
         let offsetSection = 0, rNOffset = 0, openSection = false, detectedKey = false, i = 0;

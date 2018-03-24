@@ -1,6 +1,6 @@
 {
   "name": "pdsparser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parse PDS Buffer or PDS (CFG) File",
   "main": "index.js",
   "scripts": {
