@@ -1,5 +1,5 @@
 {
-  "name": "pdsparsing",
+  "name": "pdsparser",
   "version": "1.0.0",
   "description": "Parse PDS Buffer or PDS (CFG) File",
   "main": "index.js",
