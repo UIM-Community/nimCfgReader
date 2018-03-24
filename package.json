@@ -1,7 +1,7 @@
 {
-  "name": "pdsparser",
+  "name": "nimcfgreader",
   "version": "1.0.1",
-  "description": "Parse PDS Buffer or PDS (CFG) File",
+  "description": "Parse Nimsoft (UIM) configuration file",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

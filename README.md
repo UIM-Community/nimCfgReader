@@ -21,10 +21,10 @@ Example of parsing a UIM Configuration file
 ```
 
 ```js
-const pdsparser = require('pdsparser');
+const nimCfgReader = require('nimcfgreader');
 
 async function main() {
-	const config = await (new pdsparser('./script.cfg')).read();
+	const config = await (new nimCfgReader('./script.cfg')).read();
 	
 	const loglevel 	= config.setup.loglevel || 5;
 	const probes 	= (config.setup.probes || '').split(',');
@@ -40,5 +40,5 @@ const {
 		loglevel = 5,
 		probes = ''
 	}
-} = await (new pdsparser('./script.cfg')).read();
+} = await (new nimCfgReader('./script.cfg')).read();
 ```

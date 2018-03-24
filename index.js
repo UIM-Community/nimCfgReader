@@ -24,16 +24,16 @@ const PDSKeyValueRegExp = /^([a-zA-Z0-9_.]+)\s=\s(.*)/;
 
 /**
  * @export
- * @class PDSReader
- * @classdesc Read PDS Configuration File
+ * @class nimCfgReader
+ * @classdesc Read Nimsoft (UIM) Configuration file
  * 
  * @property {String} filename
  */
-class PDSReader {
+class nimCfgReader {
 
     /**
 	 * @constructor
-	 * @param {!String} filename PDS (CFG) fileName
+	 * @param {!String} filename Configuration file path/name
 	 * 
 	 * @throws {Error}
 	 */
@@ -51,12 +51,12 @@ class PDSReader {
 	 * @async
 	 * @method read
 	 * @memberof PDSReader#
-	 * @desc Read and parse the File
+	 * @desc Read and parse the Configuration file
 	 * @returns {Promise<Object>} Return Object!
 	 * @throws {Error}
 	 */
     async read() {
-        const parsedObject = PDSReader.parsePDSBuffer(
+        const parsedObject = nimCfgReader.parseConfigurationBuffer(
             await AsyncFS.readFile(this.filename)
         );
         Object.assign(this._content, parsedObject);
@@ -66,11 +66,11 @@ class PDSReader {
 
     /**
 	 * @static
-	 * @method parsePDSBuffer
+	 * @method parseConfigurationBuffer
 	 * @param {!Buffer} buf Buffer to be parsed into a readable JavaScript Object
 	 * @returns {Object} Return parsed JavaScript Object
 	 */
-    static parsePDSBuffer(buf) {
+    static parseConfigurationBuffer(buf) {
         if(typeof(buf) === 'string') {
             buf = Buffer.from(buf);
         }
@@ -110,4 +110,4 @@ class PDSReader {
 
 }
 
-module.exports = PDSReader;
+module.exports = nimCfgReader;
