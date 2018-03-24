@@ -10,5 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "lodash.set": "^4.3.2"
+  },
+  "devDependencies": {
+    "benchmark": "^2.1.4"
   }
 }
