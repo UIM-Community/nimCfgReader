@@ -6,9 +6,9 @@ PDS Configuration file parser
 This package is available in the Node Package Repository and can be easily installed with [npm](https://docs.npmjs.com/getting-started/what-is-npm) or [yarn](https://yarnpkg.com).
 
 ```bash
-$ npm i pdsparser
+$ npm i nimcfgreader
 # or
-$ yarn add pdsparser
+$ yarn add nimcfgreader
 ``` 
 
 Example of parsing a UIM Configuration file
