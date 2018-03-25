@@ -1,4 +1,4 @@
-# PDSParser
+# nimCfgReader
 PDS Configuration file parser
 
 ## Getting started
