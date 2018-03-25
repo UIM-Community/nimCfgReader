@@ -35,9 +35,13 @@ class nimCfgReader {
 	 * @constructor
 	 * @param {!String} filename Configuration file path/name
 	 * 
+     * @throws {TypeError}
 	 * @throws {Error}
 	 */
     constructor(filename) {
+        if(typeof filename === 'undefined') {
+            throw new TypeError('filename argument cannot be undefined');
+        }
         const fileExt = extname(filename);
         if (fileExt !== '.cfg') {
             throw new Error('filename argument extension should be a .cfg');
@@ -71,7 +75,10 @@ class nimCfgReader {
 	 * @returns {Object} Return parsed JavaScript Object
 	 */
     static parseConfigurationBuffer(buf) {
-        if(typeof(buf) === 'string') {
+        if(typeof buf === 'undefined') {
+            throw new TypeError('buf argument cannot be undefined!');
+        }
+        if(typeof buf === 'string') {
             buf = Buffer.from(buf);
         }
         const ret = {};
