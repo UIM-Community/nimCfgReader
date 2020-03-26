@@ -1,18 +1,10 @@
 // Require Node.JS core package(s)
-const {
-    readFile
-} = require('fs');
-const { promisify } = require('util');
-const { extname } = require('path');
+const { readFile } = require('fs').promises;
 
 // Require third-party lib
 const set = require('lodash.set');
 
-// Promisified FileSystem Interface
-const AsyncFS = {
-    readFile: promisify(readFile)
-};
-
+// CONSTANTS
 const CHAR = {
     cO: '<'.charCodeAt(0),
     cE: '>'.charCodeAt(0),
@@ -39,15 +31,11 @@ class nimCfgReader {
 	 * @throws {Error}
 	 */
     constructor(filename) {
-        if(typeof filename === 'undefined') {
-            throw new TypeError('filename argument cannot be undefined');
+        if(typeof filename !== "string") {
+            throw new TypeError('filename must be a string');
         }
-        const fileExt = extname(filename);
-        if (fileExt !== '.cfg') {
-            throw new Error('filename argument extension should be a .cfg');
-        }
+
         this.filename = filename;
-        this._content = {};
     }
 
     /**
@@ -56,16 +44,12 @@ class nimCfgReader {
 	 * @method read
 	 * @memberof PDSReader#
 	 * @desc Read and parse the Configuration file
-	 * @returns {Promise<Object>} Return Object!
-	 * @throws {Error}
+	 * @returns {Promise<object>} Return Object!
 	 */
     async read() {
-        const parsedObject = nimCfgReader.parseConfigurationBuffer(
-            await AsyncFS.readFile(this.filename)
-        );
-        Object.assign(this._content, parsedObject);
+        const buf = await readFile(this.filename);
 
-        return this._content;
+        return nimCfgReader.parseConfigurationBuffer(buf);
     }
 
     /**

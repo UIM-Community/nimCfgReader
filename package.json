@@ -1,12 +1,16 @@
 {
   "name": "nimcfgreader",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Parse Nimsoft (UIM) configuration file",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "benchmark": "node benchmark/index.js"
   },
-  "author": "",
+  "author": "GENTILHOMME Thomas <gentilhomme.thomas@gmail.com>",
+  "files": [
+      "index.d.ts"
+  ],
   "license": "MIT",
   "dependencies": {
     "lodash.set": "^4.3.2"
